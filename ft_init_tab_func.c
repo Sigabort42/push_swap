@@ -32,16 +32,16 @@ void	ft_init_tab_func(t_tab **tab_func)
 	(*tab_func)[4].command = ft_strdup("pb");
 	(*tab_func)[4].f = &ft_push_b;
 	(*tab_func)[5].command = ft_strdup("ra");
-	(*tab_func)[5].f = &ft_func;
+	(*tab_func)[5].f = &ft_rotate_a;
 	(*tab_func)[6].command = ft_strdup("rb");
-	(*tab_func)[6].f = &ft_func;
+	(*tab_func)[6].f = &ft_rotate_b;
 	(*tab_func)[7].command = ft_strdup("rr");
-	(*tab_func)[7].f = &ft_func;
+	(*tab_func)[7].f = &ft_rotate_r;
 	(*tab_func)[8].command = ft_strdup("rra");
-	(*tab_func)[8].f = &ft_func;
+	(*tab_func)[8].f = &ft_reverse_a;
 	(*tab_func)[9].command = ft_strdup("rrb");
-	(*tab_func)[9].f = &ft_func;
+	(*tab_func)[9].f = &ft_reverse_b;
 	(*tab_func)[10].command = ft_strdup("rrr");
-	(*tab_func)[10].f = &ft_func;
+	(*tab_func)[10].f = &ft_reverse_r;
 	(*tab_func)[11].command = 0;
 }

@@ -68,6 +68,11 @@ void			ft_push_a(t_vari *var);
 void			ft_push_b(t_vari *var);
 void			ft_rotate_a(t_vari *var);
 void			ft_rotate_b(t_vari *var);
+void			ft_rotate_r(t_vari *var);
+void			ft_reverse_a(t_vari *var);
+void			ft_reverse_b(t_vari *var);
+void			ft_reverse_r(t_vari *var);
 void			ft_exec_command(t_vari *var, t_tab *tab_func, char *command);
+void			ft_verif_tri(t_vari *var);
 
 #endif

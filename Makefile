@@ -29,7 +29,13 @@ SRCS	=	ft_init_tab_func.c \
 		ft_push_a.c \
 		ft_push_b.c \
 		ft_rotate_a.c \
+		ft_rotate_b.c \
+		ft_rotate_r.c \
+		ft_reverse_a.c \
+		ft_reverse_b.c \
+		ft_reverse_r.c \
 		ft_exec_command.c \
+		ft_verif_tri.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
