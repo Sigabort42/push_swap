@@ -28,21 +28,46 @@
 # define RRB "rrb"//reverse rotate b - décale d’une position vers le bas tous les élements  la pile b. Le dernier élément devient le premie
 # define RRR "rrr"// rra et rrb en même temps
 
-typedef struct	s_vari
-{
-	int			ret;
-	int			*pile_a;
-	int			*pile_b;
-	char		*buf;
-}				t_vari;
+typedef	struct s_tab	t_tab;
 
-typedef struct	s_tab
+typedef struct		s_lst
+{
+	int		nb;
+	struct	s_lst	*next;
+	struct	s_lst	*prev;
+}			t_lst;
+
+typedef struct		s_vari
+{
+	struct s_lst	*first_a;
+	struct s_lst	*last_a;
+	struct s_lst	*first_b;
+	struct s_lst	*last_b;
+	int		ret;
+	char		*buf;
+	t_tab		*tab_func;
+}			t_vari;
+
+struct		s_tab
 {
 	char		*command;
-	void		(*f)(int *, int *);
-}				t_tab;
+	void		(*f)(t_vari *);
+};
 
-void	ft_init_tab_func(t_tab *tab);
-void	ft_func(int *tab, int *tab2);
+void			ft_init_tab_func(t_tab **tab);
+void			ft_func(t_vari *var);
+void			ft_verif_command(char *command, t_tab *tab_func);
+void			ft_init_pile_a(t_lst **pile_a, char **av);
+void			ft_list_pushback(t_lst **alst, t_lst *new);
+t_lst			*ft_listnew(int nb);
+t_lst			*ft_listlast(t_lst *lst);
+void			ft_swap_a(t_vari *var);
+void			ft_swap_b(t_vari *var);
+void			ft_swap_s(t_vari *var);
+void			ft_push_a(t_vari *var);
+void			ft_push_b(t_vari *var);
+void			ft_rotate_a(t_vari *var);
+void			ft_rotate_b(t_vari *var);
+void			ft_exec_command(t_vari *var, t_tab *tab_func, char *command);
 
 #endif

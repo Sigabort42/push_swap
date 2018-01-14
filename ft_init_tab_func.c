@@ -12,39 +12,36 @@
 
 #include "push_swap.h"
 
-void	ft_func(int *tab, int *tab2)
+void	ft_func(t_vari *var)
 {
-	ft_printf("%p %p\n", tab, tab2);
+      	ft_printf("{red}%p{eoc} %3.1p\n", var, var);
 }
 
-void	ft_init_tab_func(t_tab *tab)
+void	ft_init_tab_func(t_tab **tab_func)
 {
-	int	i;
-
-	i = 0;
-//	if (!(*tab = malloc(sizeof(t_tab) * 12)))
-//		return ;
-//	tab[11] = 0;
-	tab[0].command = ft_strdup("sa");
-	tab[0].f = &ft_func;
-	tab[1].command = ft_strdup("sb");
-	tab[1].f = &ft_func;
-	tab[2].command = ft_strdup("ss");
-	tab[2].f = &ft_func;
-	tab[3].command = ft_strdup("pa");
-	tab[3].f = &ft_func;
-	tab[4].command = ft_strdup("pb");
-	tab[4].f = &ft_func;
-	tab[5].command = ft_strdup("ra");
-	tab[5].f = &ft_func;
-	tab[6].command = ft_strdup("rb");
-	tab[6].f = &ft_func;
-	tab[7].command = ft_strdup("rr");
-	tab[7].f = &ft_func;
-	tab[8].command = ft_strdup("rra");
-	tab[8].f = &ft_func;
-	tab[9].command = ft_strdup("rrb");
-	tab[9].f = &ft_func;
-	tab[10].command = ft_strdup("rrr");
-	tab[10].f = &ft_func;
+	if (!(*tab_func = malloc(sizeof(t_tab) * 12)))
+		exit(EXIT_FAILURE);
+	(*tab_func)[0].command = ft_strdup("sa");
+	(*tab_func)[0].f = &ft_swap_a;
+	(*tab_func)[1].command = ft_strdup("sb");
+	(*tab_func)[1].f = &ft_swap_b;
+	(*tab_func)[2].command = ft_strdup("ss");
+	(*tab_func)[2].f = &ft_swap_s;
+	(*tab_func)[3].command = ft_strdup("pa");
+	(*tab_func)[3].f = &ft_push_a;
+	(*tab_func)[4].command = ft_strdup("pb");
+	(*tab_func)[4].f = &ft_push_b;
+	(*tab_func)[5].command = ft_strdup("ra");
+	(*tab_func)[5].f = &ft_func;
+	(*tab_func)[6].command = ft_strdup("rb");
+	(*tab_func)[6].f = &ft_func;
+	(*tab_func)[7].command = ft_strdup("rr");
+	(*tab_func)[7].f = &ft_func;
+	(*tab_func)[8].command = ft_strdup("rra");
+	(*tab_func)[8].f = &ft_func;
+	(*tab_func)[9].command = ft_strdup("rrb");
+	(*tab_func)[9].f = &ft_func;
+	(*tab_func)[10].command = ft_strdup("rrr");
+	(*tab_func)[10].f = &ft_func;
+	(*tab_func)[11].command = 0;
 }

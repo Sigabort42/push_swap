@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verif_command.c                                    :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/13 17:37:35 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/01/13 17:40:48 by elbenkri         ###   ########.fr       */
+/*   Created: 2017/12/07 17:38:55 by elbenkri          #+#    #+#             */
+/*   Updated: 2017/12/07 23:43:47 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 42
+# include <fcntl.h>
 
-void		ft_verif_command(char *command, t_tab *tab_func)
+typedef struct	s_var
 {
-	int	i;
+	int	ret;
+	char	*tab[4096];
+	char	*rst;
+	char	*buf;
+}		t_var;
 
-	i = 0;
-	while (tab_func[i].command && ft_strcmp(command, tab_func[i].command))
-		i++;
-	if (!tab_func[i].command)
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
-}
+int		get_next_line(int fd, char **line);
+
+#endif

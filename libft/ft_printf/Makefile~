@@ -62,11 +62,11 @@ $(NAME): $(OBJS)
 	@ranlib $(NAME)
 
 clean:
-	@rm -rf $(OBJS)
+	rm -rf $(OBJS)
 	@echo "\033[H\033[2J\033[32;5m[OK...]"
 
 fclean:	clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 	@echo "\033[H\033[2J\033[32;5m[OK...]"
 
 re: fclean all

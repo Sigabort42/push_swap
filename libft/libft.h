@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 16:28:58 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/01/13 18:14:44 by elbenkri         ###   ########.fr       */
+/*   Updated: 2017/12/04 15:19:45 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# include "ft_printf/ft_printf.h"
 # define ABS(Value) (Value >= 0) ? 0 : 1
+# include "ft_printf/ft_printf.h"
 
 typedef struct		s_list
 {
@@ -93,5 +93,6 @@ t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstpushparams(int argc, char **argv);
 char				*ft_strcdup(char *s1, int c);
 char				*ft_strjoin_free(char *s1, char *s2);
+int				get_next_line(int fd, char **line);
 
 #endif

@@ -20,21 +20,31 @@ CFLAGS	=	-Wall -Wextra -Werror
 HEADER	=	includes/
 
 SRCS	=	ft_init_tab_func.c \
+		ft_verif_command.c \
+		ft_init_pile_a.c \
+		ft_listlast.c \
+		ft_swap_a.c \
+		ft_swap_b.c \
+		ft_swap_s.c \
+		ft_push_a.c \
+		ft_push_b.c \
+		ft_rotate_a.c \
+		ft_exec_command.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	make -C libft/
-	$(CC) -I $(HEADER) $(OBJS) -L./libft -lft main.c -o $(NAME)
+	@make -C libft/
+	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft main.c -o $(NAME) #-fsanitize=address
 
 clean:
-	make -C libft/ clean
-	/bin/rm -rf $(OBJS)
+	@make -C libft/ clean
+	@/bin/rm -rf $(OBJS)
 
 fclean:	clean
-	make -C libft/ fclean
-	/bin/rm -rf $(NAME)
+	@make -C libft/ fclean
+	@/bin/rm -rf $(NAME)
 
 re: fclean all
