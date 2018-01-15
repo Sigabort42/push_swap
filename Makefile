@@ -36,6 +36,7 @@ SRCS	=	ft_init_tab_func.c \
 		ft_reverse_r.c \
 		ft_exec_command.c \
 		ft_verif_tri.c \
+		ft_altoi.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -43,7 +44,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 	@make -C libft/
-	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft main.c -o $(NAME) #-fsanitize=address
+	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft main.c -o $(NAME)
 
 clean:
 	@make -C libft/ clean
