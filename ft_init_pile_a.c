@@ -18,6 +18,20 @@ void			ft_list_pushback(t_lst **alst, t_lst *new)
 	new->prev = tmp;
 }
 
+static void		ft_listadd(t_lst **alst, t_lst *new)
+{
+	if (!(*alst))
+	{
+		if (!(*alst = (t_lst*)malloc(sizeof(t_lst))))
+			exit(EXIT_FAILURE);
+		*alst = new;
+		return ;
+	}
+	(*alst)->prev = new;
+	new->next = *alst;
+	*alst = new;
+}
+
 t_lst			*ft_listnew(int nb)
 {
 	t_lst		*new;
@@ -75,7 +89,7 @@ void			ft_init_pile_a(t_lst **pile_a, char **av)
 				write(1, "Error\n", 6);
 				exit(EXIT_FAILURE);
 			}
-			ft_list_pushback(pile_a, ft_listnew(nb));
+			ft_listadd(pile_a, ft_listnew(nb));
 		}
 		if (tab_nb[j] && !ft_isdigit(tab_nb[j][0]))
 		{

@@ -55,11 +55,10 @@ int			main(int argc, char **argv)
 	ft_init_pile_a(&pile_a, argv);
 	var.first_a = pile_a;
 	var.last_a = ft_listlast(pile_a);
+	ft_printf("|%i|%i|\n", var.first_a->nb, var.last_a->nb);
 	ft_affiche(&var);
 	while ((var.ret = get_next_line(0, &var.buf)))
 	{
-		if (!ft_strcmp(var.buf, "finish"))
-			break;
 		ft_verif_command(var.buf, var.tab_func);
 		ft_exec_command(&var, var.tab_func, var.buf);
 		ft_bzero(var.buf, var.ret);
