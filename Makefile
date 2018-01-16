@@ -12,7 +12,9 @@
 
 NAME	=	checker
 
-CC		=	gcc
+NAME2	=	push_swap
+
+CC	=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
@@ -38,20 +40,31 @@ SRCS	=	ft_init_tab_func.c \
 		ft_verif_tri.c \
 		ft_altoi.c \
 
+SRCS2	=	\
+
+MAIN_CHECKER	=	main.c
+
+MAIN_SWAP	=	prog_swap/main.c \
+
 OBJS	=	$(SRCS:.c=.o)
+
+OBJS2	=	$(SRCS2:.c=.o)
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
 	@make -C libft/
-	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft main.c -o $(NAME)
+	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft $(MAIN_CHECKER) -o $(NAME)
+	@$(CC) -I $(HEADER) $(OBJS) $(OBJS2) -L./libft -lft $(MAIN_SWAP) -o $(NAME2)
 
 clean:
 	@make -C libft/ clean
 	@/bin/rm -rf $(OBJS)
+	@/bin/rm -rf $(OBJS2)
 
 fclean:	clean
 	@make -C libft/ fclean
 	@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME2)
 
 re: fclean all

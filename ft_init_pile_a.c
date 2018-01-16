@@ -44,26 +44,26 @@ t_lst			*ft_listnew(int nb)
 	return (new);
 }
 
-static void		ft_verif_tab(char **tab_nb)
+static void		ft_verif_list(t_lst *pile_a)
 {
-	int		i;
-	int		j;
+	t_lst		*tmp;
+	t_lst		*tmp2;
 
-	i = 0;
-	j = 1;
-	while (tab_nb[i])
+	tmp = pile_a;
+	tmp2 = pile_a->next;
+	while (tmp->next)
 	{
-		while (tab_nb[j])
+		while (tmp2)
 		{
-			if (!ft_strcmp(tab_nb[i], tab_nb[j]))
+			if (tmp->nb == tmp2->nb)
 			{
 				write(1, "Error\n", 6);
 				exit(EXIT_FAILURE);
 			}
-			j++;
+			tmp2 = tmp2->next;
 		}
-		i++;
-		j = i + 1;
+		tmp = tmp->next;
+		tmp2 = tmp->next;
 	}
 }
 
@@ -80,7 +80,6 @@ void			ft_init_pile_a(t_lst **pile_a, char **av)
 	while (av[i])
 	{
 		tab_nb = ft_strsplit(av[i], ' ');
-		ft_verif_tab(tab_nb);
 		while (tab_nb[j] && (ft_isdigit(tab_nb[j][0]) || tab_nb[j][0] == '-'))
 		{
 			nb = ft_altoi(tab_nb[j++]);
@@ -91,6 +90,7 @@ void			ft_init_pile_a(t_lst **pile_a, char **av)
 			}
 			ft_listadd(pile_a, ft_listnew(nb));
 		}
+		ft_verif_list(*pile_a);
 		if (tab_nb[j] && !ft_isdigit(tab_nb[j][0]))
 		{
 			write(2, "Error\n", 6);
