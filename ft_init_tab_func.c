@@ -12,11 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_func(t_vari *var)
-{
-      	ft_printf("{red}%p{eoc} %3.1p\n", var, var);
-}
-
 void	ft_init_tab_func(t_tab **tab_func)
 {
 	if (!(*tab_func = malloc(sizeof(t_tab) * 12)))

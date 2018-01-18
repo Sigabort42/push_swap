@@ -54,7 +54,6 @@ int			main(int argc, char **argv)
 	ft_init_pile_a(&pile_a, argv);
 	var.first_a = pile_a;
 	var.last_a = ft_listlast(pile_a);
-	ft_printf("|%i|%i|\n", var.first_a->nb, var.last_a->nb);
 	ft_affiche(&var);
 	while ((var.ret = get_next_line(0, &var.buf)))
 	{

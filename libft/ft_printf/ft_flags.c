@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:47:50 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/01/12 05:54:48 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/01/08 18:59:47 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 static void			ft_verif_modificateur(char *mod, t_flags *s_flags)
 {
 	s_flags->m = 0;
-	if (!ft_strcmp(mod, "hh"))
+	if (ft_strstr(mod, "hh"))
 		s_flags->m = s_flags->m | (1 << 0);
-	if (!ft_strcmp(mod, "h"))
+	else if (ft_strstr(mod, "h"))
 		s_flags->m = s_flags->m | (1 << 1);
-	if (!ft_strcmp(mod, "l"))
-		s_flags->m = s_flags->m | (1 << 2);
-	if (!ft_strcmp(mod, "ll"))
+	else if (ft_strstr(mod, "ll"))
 		s_flags->m = s_flags->m | (1 << 3);
-	if (!ft_strcmp(mod, "j"))
+	else if (ft_strstr(mod, "l"))
+		s_flags->m = s_flags->m | (1 << 2);
+	else if (ft_strstr(mod, "j"))
 		s_flags->m = s_flags->m | (1 << 4);
-	if (!ft_strcmp(mod, "z"))
+	else if (ft_strstr(mod, "z"))
 		s_flags->m = s_flags->m | (1 << 5);
 }
 
@@ -52,8 +52,7 @@ static void			ft_flags2(char *flags, t_flags *s_flags, int *i)
 	s_flags->precision = (flags[*i] == '.') ? ft_atoi(&flags[*i + 1]) : 0;
 	u = ft_is_number(ft_atoi(&flags[*i + 1]));
 	*i += (flags[*i] == '.') ? u : 0;
-	(flags[*i - u] == '.') ? ft_verif_modificateur(&flags[*i + 1], s_flags) :
-		ft_verif_modificateur(&flags[*i], s_flags);
+	ft_verif_modificateur(&flags[*i], s_flags);
 }
 
 int					ft_flags(char *flags, t_flags *s_flags)
@@ -65,7 +64,7 @@ int					ft_flags(char *flags, t_flags *s_flags)
 		return (0);
 	s_flags->c = 0;
 	while (flags[i] && (!(flags[i] >= '1' && flags[i] <= '9')) &&
-	flags[i] != '.' && ft_verif_mod(flags[i]))
+	       flags[i] != '.' && ft_verif_mod(flags[i]))
 	{
 		if (flags[i] == '0')
 			s_flags->c = s_flags->c | (1 << 0);

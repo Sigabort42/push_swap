@@ -6,21 +6,20 @@
 #    By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/10 17:33:59 by elbenkri          #+#    #+#              #
-#    Updated: 2018/01/12 05:55:41 by elbenkri         ###   ########.fr        #
+#    Updated: 2018/01/12 04:59:17 by elbenkri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME	=	libftprintf.a
+NAME		=	libftprintf.a
 
-NAME_TMP =	tmplibftprintf.a
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
-HEADER	=	ft_printf.h
+HEADER		=	ft_printf.h
 
-SRCS	=	ft_is_number.c \
+SRCS		=	ft_is_number.c \
 			ft_itoa_base.c \
 			ft_itoa_base_maj.c \
 			ft_ltoa_base.c \
@@ -52,6 +51,10 @@ SRCS	=	ft_is_number.c \
 			ft_stock_plus.c \
 			ft_flags_stock2.c \
 			ft_verif_buf.c \
+			ft_verif_address.c \
+			ft_verif_flags_stock2_4.c \
+			ft_split2_2.c \
+			ft_split2_5.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -60,6 +63,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+	@echo "\033[H\033[2J\033[32;5m[OK...]"
 
 clean:
 	@rm -rf $(OBJS)

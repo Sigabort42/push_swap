@@ -10,15 +10,15 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME		=	libft.a
+NAME			=	libft.a
 
-NAME_TMP	=	tmp_libft.a
+NAME_TMP		=	tmp_libft.a
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror
 
-SRCS		=	ft_strlen.c \
+SRCS			=	ft_strlen.c \
 				ft_strcmp.c \
 				ft_strncmp.c \
 				ft_isalpha.c \
@@ -87,9 +87,9 @@ SRCS		=	ft_strlen.c \
 				ft_strjoin_free.c \
 				get_next_line.c \
 
-OBJ		=	$(SRCS:.c=.o)
+OBJ			=	$(SRCS:.c=.o)
 
-HEADER	=	libft.h
+HEADER			=	libft.h
 
 all: $(NAME)
 

@@ -55,7 +55,6 @@ struct		s_tab
 };
 
 void			ft_init_tab_func(t_tab **tab);
-void			ft_func(t_vari *var);
 void			ft_verif_command(char *command, t_tab *tab_func);
 void			ft_init_pile_a(t_lst **pile_a, char **av);
 void			ft_list_pushback(t_lst **alst, t_lst *new);
