@@ -12,7 +12,6 @@
 
 NAME		=	libftprintf.a
 
-
 CC		=	gcc
 
 CFLAGS		=	-Wall -Wextra -Werror
@@ -56,7 +55,7 @@ SRCS		=	ft_is_number.c \
 			ft_split2_2.c \
 			ft_split2_5.c \
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS		=	$(SRCS:.c=.o)
 
 all: $(NAME)
 

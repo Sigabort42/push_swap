@@ -102,12 +102,12 @@ $(NAME): $(OBJ)
 	@echo "\033[H\033[2J\033[32;5m[OK...]"
 
 clean:
-	@make -C ft_printf clean
+	@make -C ft_printf/ clean
 	@rm -rf $(OBJ)
 	@echo "\033[H\033[2J\033[32;5m[OK...]"
 
 fclean:	clean
-	@make -C ft_printf fclean
+	@make -C ft_printf/ fclean
 	@rm -rf $(NAME)
 	@echo "\033[H\033[2J\033[32;5m[OK...]"
 

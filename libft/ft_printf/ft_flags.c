@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:47:50 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/01/08 18:59:47 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/01/20 20:16:03 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,13 @@ static void			ft_flags2(char *flags, t_flags *s_flags, int *i)
 	int				u;
 
 	s_flags->largeur = ft_atoi(&flags[*i]);
+	if (s_flags->largeur < 0)
+		s_flags->largeur = 0;
 	*i += (flags[*i] >= '0' && flags[*i] <= '9') ?
 		ft_is_number(ft_atoi(&flags[*i])) : 0;
 	s_flags->precision = (flags[*i] == '.') ? ft_atoi(&flags[*i + 1]) : 0;
+	if (s_flags->precision < 0)
+		s_flags->precision = 0;
 	u = ft_is_number(ft_atoi(&flags[*i + 1]));
 	*i += (flags[*i] == '.') ? u : 0;
 	ft_verif_modificateur(&flags[*i], s_flags);
@@ -64,7 +68,7 @@ int					ft_flags(char *flags, t_flags *s_flags)
 		return (0);
 	s_flags->c = 0;
 	while (flags[i] && (!(flags[i] >= '1' && flags[i] <= '9')) &&
-	       flags[i] != '.' && ft_verif_mod(flags[i]))
+		flags[i] != '.' && ft_verif_mod(flags[i]))
 	{
 		if (flags[i] == '0')
 			s_flags->c = s_flags->c | (1 << 0);
