@@ -16,7 +16,7 @@ static void		ft_verif_arg(int ac)
 {
 	if (ac < 2)
 	{
-		write(1, "usage : ./checker $ARG [-cv]\n", 28);
+		write(1, "usage : ./push_swap $ARG [-cv]\n", 28);
 		exit(1);
 	}
 }

@@ -91,7 +91,7 @@ void			ft_init_pile_a(t_lst **pile_a, char **av)
 			ft_listadd(pile_a, ft_listnew(nb));
 		}
 		ft_verif_list(*pile_a);
-		if (tab_nb[j] && !ft_isdigit(tab_nb[j][0]))
+		if (tab_nb[j] && (!ft_isdigit(tab_nb[j][0])) && tab_nb[j][0] != '-')
 		{
 			write(2, "Error\n", 6);
 			exit(1);
