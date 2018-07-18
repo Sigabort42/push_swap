@@ -54,13 +54,9 @@ int			main(int argc, char **argv)
 	ft_init_pile_a(&pile_a, argv);
 	var.first_a = pile_a;
 	var.last_a = ft_listlast(pile_a);
-	ft_affiche(&var);
-	while ((var.ret = get_next_line(0, &var.buf)))
-	{
-		ft_verif_command(var.buf, var.tab_func);
-		ft_exec_command(&var, var.tab_func, var.buf);
-		ft_bzero(var.buf, var.ret);
-		ft_affiche(&var);
-	}
+//	ft_affiche(&var);
+	ft_phase_one(&var);
+//	ft_affiche(&var);
+	printf("number stroke = %d\n", var.count);
 	return (0);
 }
