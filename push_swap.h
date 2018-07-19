@@ -84,6 +84,7 @@ void			ft_reverse_r(t_vari *var);
 void			ft_exec_command(t_vari *var, t_tab *tab_func, char *command);
 void			ft_verif_tri(t_vari *var);
 void			ft_phase_one(t_vari *var);
+void			ft_phase_two(t_vari *var);
 long long		ft_altoi(const char *str);
 t_lst			*ft_listnew(int nb);
 t_lst			*ft_listlast(t_lst *lst);

@@ -56,6 +56,7 @@ int			main(int argc, char **argv)
 	var.last_a = ft_listlast(pile_a);
 //	ft_affiche(&var);
 	ft_phase_one(&var);
+	ft_phase_two(&var);
 //	ft_affiche(&var);
 	printf("number stroke = %d\n", var.count);
 	return (0);

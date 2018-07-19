@@ -1,0 +1,26 @@
+#include "../push_swap.h"
+
+void	ft_phase_two(t_vari *var)
+{
+	t_lst	*tmp;
+	
+	while (var->last_b)
+	{
+		tmp = var->last_a;
+		while (var->last_a->nb > var->last_b->nb)
+		{
+			var->count++;
+			var->tab_func[RA_CMD].f(var);
+			ft_putendl(RA);
+		}
+		var->count++;
+		var->tab_func[PA_CMD].f(var);
+		ft_putendl(PA);
+		while (var->last_a != tmp)
+		{
+			var->count++;
+			var->tab_func[RRA_CMD].f(var);
+			ft_putendl(RRA);
+		}
+	}
+}

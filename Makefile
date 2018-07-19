@@ -41,6 +41,7 @@ SRCS	=	ft_init_tab_func.c \
 		ft_altoi.c \
 		prog_swap/ft_phase_one.c \
 		prog_swap/ft_count_pile.c \
+		prog_swap/ft_phase_two.c \
 
 
 SRCS2	=	\

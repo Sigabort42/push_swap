@@ -6,7 +6,7 @@ void		ft_push_a(t_vari *var)
 
 	if (!var->last_b)
 	{
-		ft_putstr("lil\n");
+//		ft_putstr("lil\n");
 		return ;
 	}
 	else if (var->first_b->next)
@@ -17,11 +17,11 @@ void		ft_push_a(t_vari *var)
 		free(var->last_b);
 		var->last_b = var->last_b->prev;
 		var->last_b->next = 0;
-		ft_putstr("lil2\n");
+//		ft_putstr("lil2\n");
 	}
 	else if (!var->first_b->next && !var->last_b->next)
 	{
-		ft_putstr("lil2\n");
+//		ft_putstr("lil2\n");
 		new = ft_listnew(var->last_b->nb);
 		ft_list_pushback(&var->first_a, new);
 		var->last_a = new;
@@ -29,5 +29,5 @@ void		ft_push_a(t_vari *var)
 		var->last_b = 0;
 		var->first_b = 0;
 	}
-	ft_putstr("lil3\n");
+//	ft_putstr("lil3\n");
 }
