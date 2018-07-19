@@ -9,26 +9,28 @@ static void	ft_exec(t_vari *var, char *name_cmd, int cmd)
 
 void		ft_phase_two(t_vari *var)
 {
-	t_lst	*tmp;
+	int	tmp;
+	int	f;
 
+	f = 0;
 	if (var->last_a->nb > var->last_a->prev->nb)
 		ft_exec(var, SA, SA_CMD);
 	while (var->last_b)
 	{
-		tmp = var->last_a;
-		while (var->last_a->nb < var->last_b->nb && tmp != var->first_a &&
-		ft_count_pile(var->last_a) > 2)
-			ft_exec(var, RA, RA_CMD);
-		ft_exec(var, PA, PA_CMD);
-		if (var->last_a->nb > var->first_a->nb)
-			ft_exec(var, RA, RA_CMD);
-		else if (var->last_a->nb > var->last_a->prev->nb)
-			ft_exec(var, SA, SA_CMD);
-/*		while (var->last_a != tmp)
+		tmp = var->last_a->nb;
+		if (var->last_b->nb > var->first_a->nb)
 		{
-			var->count++;
-			var->tab_func[RRA_CMD].f(var);
-			ft_putendl(RRA);
+			ft_exec(var, PA, PA_CMD);
+			ft_exec(var, RA, RA_CMD);
 		}
-*/	}
+		while (var->last_a->nb < var->last_b->nb)
+		{
+			f = 1;
+			ft_exec(var, RA, RA_CMD);
+		}
+		ft_exec(var, PA, PA_CMD);
+		while (tmp != var->last_a->nb && f)
+			ft_exec(var, RRA, RRA_CMD);
+		f = 0;
+	}
 }

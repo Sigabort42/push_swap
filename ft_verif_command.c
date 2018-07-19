@@ -19,7 +19,7 @@ void		ft_verif_command(char *command, t_tab *tab_func)
 	i = 0;
 	while (tab_func[i].command && ft_strcmp(command, tab_func[i].command))
 		i++;
-	if (!tab_func[i].command)
+	if (i >= 12)//(!tab_func[i].command)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
