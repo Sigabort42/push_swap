@@ -17,7 +17,7 @@ static void		ft_verif_arg(int ac)
 	if (ac < 2)
 	{
 		write(1, "usage : ./checker $ARG [-cv]\n", 28);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -50,8 +50,8 @@ int			main(int argc, char **argv)
 	var.first_b = 0;
 	var.last_b = 0;
 	ft_verif_arg(argc);
-	ft_init_tab_func(&var.tab_func);
-	ft_init_pile_a(&pile_a, argv);
+	if (ft_init_tab_func(&var.tab_func) || ft_init_pile_a(&pile_a, argv))
+		return (1);
 	var.first_a = pile_a;
 	var.last_a = ft_listlast(pile_a);
 	ft_affiche(&var);

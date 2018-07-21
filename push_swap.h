@@ -66,10 +66,7 @@ struct		s_tab
 	void		(*f)(t_vari *);
 };
 
-void			ft_init_tab_func(t_tab **tab);
 void			ft_verif_command(char *command, t_tab *tab_func);
-void			ft_init_pile_a(t_lst **pile_a, char **av);
-void			ft_list_pushback(t_lst **alst, t_lst *new);
 void			ft_swap_a(t_vari *var);
 void			ft_swap_b(t_vari *var);
 void			ft_swap_s(t_vari *var);
@@ -89,5 +86,8 @@ long long		ft_altoi(const char *str);
 t_lst			*ft_listnew(int nb);
 t_lst			*ft_listlast(t_lst *lst);
 int			ft_count_pile(t_lst *pile);
+int			ft_init_tab_func(t_tab **tab);
+int			ft_init_pile_a(t_lst **pile_a, char **av);
+int			ft_list_pushback(t_lst **alst, t_lst *new);
 
 #endif

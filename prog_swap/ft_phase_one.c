@@ -2,7 +2,10 @@
 
 void	ft_phase_one(t_vari *var)
 {
-	while (var->last_a && ft_count_pile(var->last_a) > 2)
+	int	nb;
+
+	nb = var->first_a->nb;
+	while (var->last_a && (ft_count_pile(var->last_a) > 2 && var->last_a->nb != nb))
 	{
 		if (var->last_a && var->last_a->nb > var->first_a->nb)
 		{

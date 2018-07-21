@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	ft_init_tab_func(t_tab **tab_func)
+int	ft_init_tab_func(t_tab **tab_func)
 {
-	if (!(*tab_func = malloc(sizeof(t_tab) * 12)))
-		exit(EXIT_FAILURE);
+	if (!(*tab_func = (t_tab*)malloc(sizeof(t_tab) * 12)))
+		return (1);
 	(*tab_func)[0].command = ft_strdup("sa");
 	(*tab_func)[0].f = &ft_swap_a;
 	(*tab_func)[1].command = ft_strdup("sb");
@@ -39,4 +39,5 @@ void	ft_init_tab_func(t_tab **tab_func)
 	(*tab_func)[10].command = ft_strdup("rrr");
 	(*tab_func)[10].f = &ft_reverse_r;
 	(*tab_func)[11].command = 0;
+	return (0);
 }

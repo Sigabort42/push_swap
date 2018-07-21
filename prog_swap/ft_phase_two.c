@@ -13,7 +13,7 @@ void		ft_phase_two(t_vari *var)
 	int	f;
 
 	f = 0;
-	if (var->last_a->nb > var->last_a->prev->nb)
+	if (var->last_a && var->last_a->prev && var->last_a->nb > var->last_a->prev->nb)
 		ft_exec(var, SA, SA_CMD);
 	while (var->last_b)
 	{

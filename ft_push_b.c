@@ -9,7 +9,8 @@ void		ft_push_b(t_vari *var)
 	else if (var->last_a->prev)
 	{
 		new = ft_listnew(var->last_a->nb);
-		ft_list_pushback(&var->first_b, new);
+		if (ft_list_pushback(&var->first_b, new))
+			return ;
 		var->last_b = new;
 		free(var->last_a);
 		var->last_a = var->last_a->prev;
@@ -18,7 +19,8 @@ void		ft_push_b(t_vari *var)
 	else if (!var->last_a->prev && !var->last_a->next)
 	{
 		new = ft_listnew(var->last_a->nb);
-		ft_list_pushback(&var->first_b, new);
+		if (ft_list_pushback(&var->first_b, new))
+			return ;
 		var->last_b = new;
 		free(var->last_a);
 		var->last_a = 0;

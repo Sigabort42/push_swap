@@ -40,15 +40,12 @@ SRCS	=	ft_init_tab_func.c \
 		ft_verif_tri.c \
 		ft_altoi.c \
 
-
 SRCS2	=	prog_swap/ft_phase_one.c \
 		prog_swap/ft_count_pile.c \
 		prog_swap/ft_phase_two.c \
+		prog_swap/main.c \
 
-
-MAIN_CHECKER	=	main.c
-
-MAIN_SWAP	=	prog_swap/main.c \
+MAIN_CHECKER =	main.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -59,7 +56,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS) $(OBJS2)
 	@make -C libft/
 	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft $(MAIN_CHECKER) -o $(NAME)
-	@$(CC) -I $(HEADER) $(OBJS) $(OBJS2) -L./libft -lft $(MAIN_SWAP) -o $(NAME2)
+	@$(CC) -I $(HEADER) $(OBJS) $(OBJS2) -L./libft -lft -o $(NAME2)
 
 clean:
 	@make -C libft/ clean
