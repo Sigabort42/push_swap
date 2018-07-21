@@ -6,7 +6,7 @@
 #    By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/13 17:23:52 by elbenkri          #+#    #+#              #
-#    Updated: 2018/07/21 21:40:58 by elbenkri         ###   ########.fr        #
+#    Updated: 2018/07/21 23:39:11 by elbenkri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -38,6 +38,9 @@ SRCS	=	ft_init_tab_func.c \
 		ft_exec_command.c \
 		ft_verif_tri.c \
 		ft_altoi.c \
+		ft_list_pushback.c \
+		ft_listnew.c \
+		ft_listadd.c \
 
 SRCS2	=	prog_swap/ft_phase_one.c \
 		prog_swap/ft_count_pile.c \
