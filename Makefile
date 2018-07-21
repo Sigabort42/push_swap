@@ -6,7 +6,7 @@
 #    By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/13 17:23:52 by elbenkri          #+#    #+#              #
-#    Updated: 2018/07/21 21:17:55 by elbenkri         ###   ########.fr        #
+#    Updated: 2018/07/21 21:40:58 by elbenkri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -56,6 +56,7 @@ $(NAME):	$(OBJS) $(OBJS2)
 	@make -C libft/
 	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft $(MAIN_CHECKER) -o $(NAME)
 	@$(CC) -I $(HEADER) $(OBJS) $(OBJS2) -L./libft -lft -o $(NAME2)
+
 
 clean:
 	@make -C libft/ clean

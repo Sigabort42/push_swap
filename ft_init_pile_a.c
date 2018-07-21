@@ -6,20 +6,18 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 21:19:36 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/07/21 21:19:37 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/07/21 22:01:21 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			ft_list_pushback(t_lst **alst, t_lst *new)
+int				ft_list_pushback(t_lst **alst, t_lst *new)
 {
 	t_lst		*tmp;
 
 	if (!(*alst))
 	{
-		if (!(*alst = (t_lst*)malloc(sizeof(t_lst))))
-			return (1);
 		*alst = new;
 		return (0);
 	}
@@ -37,11 +35,6 @@ static int		ft_listadd(t_lst **alst, t_lst *new)
 		return (1);
 	if (!(*alst))
 	{
-		if (!(*alst = (t_lst*)malloc(sizeof(t_lst))))
-		{
-			free(new);
-			return (1);
-		}
 		*alst = new;
 		return (0);
 	}
@@ -89,19 +82,20 @@ static int		ft_verif_list(t_lst *pile_a)
 	return (0);
 }
 
-void		ft_free_tab(char **tab)
+void			ft_free_tab(char **tab)
 {
 	int		i;
 
 	i = 0;
 	while (tab[i])
 		ft_strdel(&tab[i++]);
+	free(tab);
 }
 
-int			ft_init_pile_a(t_lst **pile_a, char **av)
+int				ft_init_pile_a(t_lst **pile_a, char **av)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 	char		**tab_nb;
 	long long	nb;
 	
