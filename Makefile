@@ -6,7 +6,7 @@
 #    By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/13 17:23:52 by elbenkri          #+#    #+#              #
-#    Updated: 2018/01/13 18:11:36 by elbenkri         ###   ########.fr        #
+#    Updated: 2018/07/21 21:17:55 by elbenkri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,7 +17,6 @@ NAME2	=	push_swap
 CC	=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror -g3 #-fsanitize=address
-
 
 HEADER	=	includes/
 
