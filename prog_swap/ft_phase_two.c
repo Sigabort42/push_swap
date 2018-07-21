@@ -23,29 +23,33 @@ void		ft_phase_two(t_vari *var)
 			ft_exec(var, PA, PA_CMD);
 			ft_exec(var, RA, RA_CMD);
 		}
-		while (var->last_a->nb < var->last_b->nb)
+		while (var->last_b && var->last_a->nb < var->last_b->nb)
 		{
 			f = 1;
-			ft_exec(var, RA, RA_CMD);
+			ft_exec(var, RR, RR_CMD);
 		}
-		ft_exec(var, PA, PA_CMD);
+		if (!f)
+			ft_exec(var, PA, PA_CMD);
 		while (tmp != var->last_a->nb && f)
 		{
-			if (var->last_a->nb < var->last_b->nb)
+			while (var->last_b && var->last_b->nb > var->first_a->nb &&
+			var->last_b->nb < var->last_a->nb)
 			{
-				while (var->last_a->nb < var->last_b->nb)
+				ft_exec(var, PA, PA_CMD);
+				ft_exec(var, RA, RA_CMD);
+			}			
+			if (var->last_b && var->last_a->nb < var->last_b->nb)
+			{
+				while (var->last_b && var->last_a->nb < var->last_b->nb)
 				{
 					f = 1;
-					ft_exec(var, RA, RA_CMD);
+					ft_exec(var, RR, RR_CMD);
 				}
-				ft_exec(var, PA, PA_CMD);
 			}
-			while (var->last_a->nb > var->last_b->nb &&
+			while (var->last_b && var->last_a->nb > var->last_b->nb &&
 			var->first_a->nb < var->last_b->nb)
 				ft_exec(var, PA, PA_CMD);
-			if (!(var->last_a->nb > var->last_b->nb &&
-			var->first_a->nb < var->last_b->nb))
-				ft_exec(var, RRA, RRA_CMD);
+			ft_exec(var, RRA, RRA_CMD);
 		}
 		f = 0;
 	}

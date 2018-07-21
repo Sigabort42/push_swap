@@ -16,7 +16,7 @@ NAME2	=	push_swap
 
 CC	=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 
 HEADER	=	includes/
@@ -39,12 +39,12 @@ SRCS	=	ft_init_tab_func.c \
 		ft_exec_command.c \
 		ft_verif_tri.c \
 		ft_altoi.c \
-		prog_swap/ft_phase_one.c \
+
+
+SRCS2	=	prog_swap/ft_phase_one.c \
 		prog_swap/ft_count_pile.c \
 		prog_swap/ft_phase_two.c \
 
-
-SRCS2	=	\
 
 MAIN_CHECKER	=	main.c
 
@@ -56,7 +56,7 @@ OBJS2	=	$(SRCS2:.c=.o)
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(OBJS2)
 	@make -C libft/
 	@$(CC) -I $(HEADER) $(OBJS) -L./libft -lft $(MAIN_CHECKER) -o $(NAME)
 	@$(CC) -I $(HEADER) $(OBJS) $(OBJS2) -L./libft -lft $(MAIN_SWAP) -o $(NAME2)
