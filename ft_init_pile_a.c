@@ -1,16 +1,55 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_init_pile_a.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/21 21:19:36 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/07/23 19:20:43 by elbenkri         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
+
+int			ft_list_pushback(t_lst **alst, t_lst *new)
+{
+	t_lst		*tmp;
+
+	if (!(*alst))
+	{
+		if (!(*alst = (t_lst*)malloc(sizeof(t_lst))))
+			return (1);
+		*alst = new;
+		return (0);
+	}
+	tmp = *alst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->prev = tmp;
+	return (0);
+}
+
+static int		ft_listadd(t_lst **alst, t_lst *new)
+{
+	if (!new)
+		return (1);
+	if (!(*alst))
+	{
+		if (!(*alst = (t_lst*)malloc(sizeof(t_lst))))
+		{
+			free(new);
+			return (1);
+		}
+		*alst = new;
+		return (0);
+	}
+	(*alst)->prev = new;
+	new->next = *alst;
+	*alst = new;
+	return (0);
+}
+
+t_lst			*ft_listnew(int nb)
+{
+	t_lst		*new;
+
+	if (!(new = (t_lst*)malloc(sizeof(t_lst))))
+		return (0);
+	new->nb = nb;
+	new->next = 0;
+	new->prev = 0;
+	return (new);
+}
 
 static int		ft_verif_list(t_lst *pile_a)
 {
@@ -38,41 +77,22 @@ static int		ft_verif_list(t_lst *pile_a)
 	return (0);
 }
 
-static void		ft_free_tab(char **tab)
+void		ft_free_tab(char **tab)
 {
-	int			i;
+	int		i;
 
 	i = 0;
 	while (tab[i])
 		ft_strdel(&tab[i++]);
-	free(tab);
 }
 
-static int		ft_range_pile(t_lst **pile_a, char **tab_nb, int *j)
+int			ft_init_pile_a(t_lst **pile_a, char **av)
 {
-	long long	nb;
-
-	while (tab_nb[*j] && ft_isdigit(tab_nb[*j][0]))
-	{
-		nb = ft_altoi(tab_nb[*j]);
-		*j = *j + 1;
-		if (nb < -2147483648 || nb > 2147483647 ||
-			ft_listadd(pile_a, ft_listnew(nb)))
-		{
-			write(1, "Error\n", 6);
-			ft_free_tab(tab_nb);
-			return (1);
-		}
-	}
-	return (0);
-}
-
-int				ft_init_pile_a(t_lst **pile_a, char **av)
-{
-	int			i;
-	int			j;
+	int		i;
+	int		j;
 	char		**tab_nb;
-
+	long long	nb;
+	
 	i = 1;
 	j = 0;
 	*pile_a = 0;
@@ -80,8 +100,17 @@ int				ft_init_pile_a(t_lst **pile_a, char **av)
 	{
 		if (!(tab_nb = ft_strsplit(av[i], ' ')))
 			return (1);
-		if (ft_range_pile(pile_a, tab_nb, &j))
-			return (1);
+		while (tab_nb[j] && ft_isdigit(tab_nb[j][0]))
+		{
+			nb = ft_altoi(tab_nb[j++]);
+			if (nb < -2147483648 || nb > 2147483647 ||
+			ft_listadd(pile_a, ft_listnew(nb)))
+			{
+				write(1, "Error\n", 6);
+				ft_free_tab(tab_nb);
+				return (1);
+			}
+		}
 		if (ft_verif_list(*pile_a) || (tab_nb[j] && !ft_isdigit(tab_nb[j][0])))
 		{
 			write(1, "Error\n", 6);

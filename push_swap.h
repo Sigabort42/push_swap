@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 18:18:07 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/07/22 00:05:47 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/01/13 18:43:41 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,54 +41,54 @@
 
 typedef	struct s_tab	t_tab;
 
-typedef struct			s_lst
+typedef struct		s_lst
 {
-	int					nb;
-	struct	s_lst		*next;
-	struct	s_lst		*prev;
-}						t_lst;
+	int		nb;
+	struct	s_lst	*next;
+	struct	s_lst	*prev;
+}			t_lst;
 
-typedef struct			s_vari
+typedef struct		s_vari
 {
-	struct s_lst		*first_a;
-	struct s_lst		*last_a;
-	struct s_lst		*first_b;
-	struct s_lst		*last_b;
-	int					ret;
-	int					count;
-	char				*buf;
-	t_tab				*tab_func;
-}						t_vari;
+	struct s_lst	*first_a;
+	struct s_lst	*last_a;
+	struct s_lst	*first_b;
+	struct s_lst	*last_b;
+	int		ret;
+	int		count;
+	char		*buf;
+	t_tab		*tab_func;
+}			t_vari;
 
-struct					s_tab
+struct		s_tab
 {
-	char				*command;
-	void				(*f)(t_vari *);
+	char		*command;
+	void		(*f)(t_vari *);
 };
 
-void					ft_verif_command(char *command, t_tab *tab_func);
-void					ft_swap_a(t_vari *var);
-void					ft_swap_b(t_vari *var);
-void					ft_swap_s(t_vari *var);
-void					ft_push_a(t_vari *var);
-void					ft_push_b(t_vari *var);
-void					ft_rotate_a(t_vari *var);
-void					ft_rotate_b(t_vari *var);
-void					ft_rotate_r(t_vari *var);
-void					ft_reverse_a(t_vari *var);
-void					ft_reverse_b(t_vari *var);
-void					ft_reverse_r(t_vari *var);
-void					ft_exec_command(t_vari *var, t_tab *tab_func, char *command);
-void					ft_verif_tri(t_vari *var);
-void					ft_phase_one(t_vari *var);
-void					ft_phase_two(t_vari *var);
-long long				ft_altoi(const char *str);
-t_lst					*ft_listnew(int nb);
-t_lst					*ft_listlast(t_lst *lst);
-int						ft_count_pile(t_lst *pile);
-int						ft_init_tab_func(t_tab **tab);
-int						ft_init_pile_a(t_lst **pile_a, char **av);
-int						ft_list_pushback(t_lst **alst, t_lst *new);
-int						ft_listadd(t_lst **alst, t_lst *new);
+void			ft_verif_command(char *command, t_tab *tab_func);
+void			ft_swap_a(t_vari *var);
+void			ft_swap_b(t_vari *var);
+void			ft_swap_s(t_vari *var);
+void			ft_push_a(t_vari *var);
+void			ft_push_b(t_vari *var);
+void			ft_rotate_a(t_vari *var);
+void			ft_rotate_b(t_vari *var);
+void			ft_rotate_r(t_vari *var);
+void			ft_reverse_a(t_vari *var);
+void			ft_reverse_b(t_vari *var);
+void			ft_reverse_r(t_vari *var);
+void			ft_exec_command(t_vari *var, t_tab *tab_func, char *command);
+void			ft_verif_tri(t_vari *var);
+void			ft_phase_one(t_vari *var);
+void			ft_phase_two(t_vari *var);
+void			ft_exec(t_vari *var, char *name_cmd, int cmd);
+long long		ft_altoi(const char *str);
+t_lst			*ft_listnew(int nb);
+t_lst			*ft_listlast(t_lst *lst);
+int			ft_count_pile(t_lst *pile);
+int			ft_init_tab_func(t_tab **tab);
+int			ft_init_pile_a(t_lst **pile_a, char **av);
+int			ft_list_pushback(t_lst **alst, t_lst *new);
 
 #endif
