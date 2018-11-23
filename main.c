@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 18:19:03 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/01/13 18:43:15 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/11/23 01:51:52 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void		ft_affiche(t_vari *var)
 {
 	t_lst		*tmp_a;
 	t_lst		*tmp_b;
+
 	tmp_a = var->first_a;
 	ft_putstr("pile_a: ");
 	while (tmp_a)
@@ -39,10 +40,10 @@ static void		ft_affiche(t_vari *var)
 		ft_printf("|%i ", tmp_b->nb);
 		tmp_b = tmp_b->next;
 	}
-	ft_putstr("\n");	
+	ft_putstr("\n");
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_vari		var;
 	t_lst		*pile_a;

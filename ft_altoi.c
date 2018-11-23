@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:55:27 by elbenkri          #+#    #+#             */
-/*   Updated: 2017/11/13 07:27:28 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/11/23 01:48:28 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long long		ft_altoi(const char *str)
 {
-	int		i;
-	int		k;
+	int			i;
+	int			k;
 	long long	res;
 
 	i = 0;
