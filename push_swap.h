@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 18:18:07 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/11/23 02:11:02 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/11/23 03:56:31 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void				ft_verif_tri(t_vari *var);
 void				ft_phase_one(t_vari *var);
 void				ft_phase_two(t_vari *var);
 void				ft_exec(t_vari *var, char *name_cmd, int cmd);
+void				ft_free_tab(char **tab);
 long long			ft_altoi(const char *str);
 t_lst				*ft_listnew(int nb);
 t_lst				*ft_listlast(t_lst *lst);
@@ -151,5 +152,7 @@ int					ft_count_pile(t_lst *pile);
 int					ft_init_tab_func(t_tab **tab);
 int					ft_init_pile_a(t_lst **pile_a, char **av);
 int					ft_list_pushback(t_lst **alst, t_lst *new);
+int					ft_listadd(t_lst **alst, t_lst *new);
+int					ft_verif_list(t_lst *pile_a);
 
 #endif

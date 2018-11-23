@@ -6,7 +6,7 @@
 /*   By: elbenkri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 01:44:27 by elbenkri          #+#    #+#             */
-/*   Updated: 2018/11/23 01:47:21 by elbenkri         ###   ########.fr       */
+/*   Updated: 2018/11/23 03:55:05 by elbenkri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				ft_list_pushback(t_lst **alst, t_lst *new)
 	return (0);
 }
 
-static int		ft_listadd(t_lst **alst, t_lst *new)
+int				ft_listadd(t_lst **alst, t_lst *new)
 {
 	if (!new)
 		return (1);
@@ -63,7 +63,7 @@ t_lst			*ft_listnew(int nb)
 	return (new);
 }
 
-static int		ft_verif_list(t_lst *pile_a)
+int				ft_verif_list(t_lst *pile_a)
 {
 	t_lst		*tmp;
 	t_lst		*tmp2;
@@ -97,7 +97,7 @@ void			ft_free_tab(char **tab)
 	while (tab[i])
 		ft_strdel(&tab[i++]);
 }
-
+/*
 int				ft_init_pile_a(t_lst **pile_a, char **av)
 {
 	int			i;
@@ -135,3 +135,4 @@ int				ft_init_pile_a(t_lst **pile_a, char **av)
 	}
 	return (0);
 }
+*/
