@@ -154,5 +154,6 @@ int					ft_init_pile_a(t_lst **pile_a, char **av);
 int					ft_list_pushback(t_lst **alst, t_lst *new);
 int					ft_listadd(t_lst **alst, t_lst *new);
 int					ft_verif_list(t_lst *pile_a);
+int					ft_count_node(t_lst *lst);
 
 #endif

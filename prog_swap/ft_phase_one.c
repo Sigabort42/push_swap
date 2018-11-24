@@ -12,13 +12,13 @@
 
 #include "../push_swap.h"
 
-int			ft_count_node(t_vari *var)
+int			ft_count_node(t_lst *lst)
 {
 	int		i;
 	t_lst	*tmp;
 
 	i = 0;
-	tmp = var->first_a;
+	tmp = lst;
 	while (tmp)
 	{
 		i++;
@@ -37,6 +37,8 @@ int			ft_phase_one2(int n)
 		return (n / 4);
 }
 
+#include <stdio.h>
+
 void		ft_phase_one(t_vari *var)
 {
 	int		n;
@@ -47,14 +49,16 @@ void		ft_phase_one(t_vari *var)
 
 	tmp = var->last_a;
 	n_b = 0;
-	n = ft_count_node(var);
+	n = ft_count_node(var->first_a);
 	m = ft_phase_one2(n);
 	m2 = m;
-	while (tmp->prev)
+	while (tmp && tmp->prev)
 	{
 		while (n_b < m2 - 1)
 		{
-			if (tmp->nb <= m2 && tmp->nb != n && ++n_b)
+			if (ft_count_node(var->first_a) == 1)
+				break;
+			else if (tmp->nb <= m2 && tmp->nb != n && ++n_b)
 				ft_exec(var, PB, PB_CMD);
 			else
 				ft_exec(var, RA, RA_CMD);

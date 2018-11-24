@@ -19,8 +19,40 @@ void		ft_exec(t_vari *var, char *name_cmd, int cmd)
 	var->count++;
 }
 
+#include <stdio.h>
+
+t_lst		*ft_verif_taille(t_lst *lst, int nb)
+{
+	t_lst	*tmp;
+	t_lst	*n;
+
+	tmp = lst;
+	n = tmp;
+	while (tmp)
+	{
+		if (tmp->nb > nb)
+			return (0);
+		else if (n->nb < tmp->nb)
+			n = tmp;
+		tmp = tmp->next;
+	}
+	return (n);
+}
+
+void		ft_push_taille(t_vari *var, t_lst *addr)
+{
+	t_lst *pile_a;
+
+	pile_a = var->first_a;
+	while (pile_a && pile_a != addr)
+		pile_a = pile_a->next;
+	ft_exec(var, PA, PA_CMD);
+	ft_exec(var, SA, SA_CMD);
+}
+
 void		ft_phase_two2(t_vari *var, int *f)
 {
+	t_lst	*addr;
 	while (var->last_b && var->last_b->nb > var->first_a->nb &&
 	var->last_b->nb < var->last_a->nb)
 	{
@@ -32,7 +64,10 @@ void		ft_phase_two2(t_vari *var, int *f)
 		while (var->last_b && var->last_a->nb < var->last_b->nb)
 		{
 			*f = 1;
-			ft_exec(var, RA, RA_CMD);
+			if (!(addr = ft_verif_taille(var->first_a, var->last_b->nb)))
+				ft_exec(var, RA, RA_CMD);
+			else
+				ft_push_taille(var, addr);
 		}
 	}
 	while (var->last_b && var->last_a->nb > var->last_b->nb &&

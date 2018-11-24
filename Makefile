@@ -16,7 +16,7 @@ NAME2	=	push_swap
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 HEADER	=	includes/
 
