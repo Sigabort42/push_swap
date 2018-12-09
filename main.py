@@ -2,12 +2,16 @@
 
 import subprocess
 import sys
+import time
 from tkinter import *
 
 
 tab = sys.argv
 vitesse = 0
 fenetre = ""
+canvas = ""
+line = []
+taille = ""
 
 def     ft_init():
     del tab[0]
@@ -16,24 +20,33 @@ def     ft_init():
     return (out[0].decode("utf8").split("\n"))
 
 def     ft_play():
-    print("salut")
+    pile_a = len(tab) - 1
+    pile_b = 0
+    print(line[pile_a])
+    print(line[pile_a])
+    while pile_a > 0:
+        canvas.move(line[pile_a][0], 500 - line[pile_a][1] + line[pile_a][1] + 2, pile_b)
+        pile_a -= 1
+        pile_b += 1
 
 def     ft_stop():
     print("bye")
 
-
-def     ft_init_pile(canvas):
+def     ft_init_pile():
+    global canvas
+    global line
+    global taille
     x = 630
     canvas.create_line((500,800), (500,0), fill='white', width=2)
-    for elt in tab:
+    for i, elt in enumerate(tab):
         x -= 1
         taille = (500 - int(elt) - 2)
-        color = hex(int("ffffff", 16) - taille * 1000)
-        color = color.replace("0x", "")
-        canvas.create_line((0, x), (taille,x), fill='#'+color, width=2)
-    
+        color = hex(int("ffffff", 16) - taille * 10000)
+        color = color.replace("0x", "")        
+        line.append((canvas.create_line((0, x), (taille,x), fill='#'+color, width=2), taille))
+
 def     affiche():
-    print(vitesse.get().isdecimal())
+    global canvas
     if not vitesse.get().isdecimal() or int(vitesse.get()) > 10 or int(vitesse.get()) < 1:
         print("Entrez un Nombre entre 1 et 10")
     else:
@@ -43,9 +56,9 @@ def     affiche():
         bouton.pack()
         bouton = Button(fenetre, text='Stop', command=ft_stop)
         bouton.pack()
-        cadre = Canvas(fenetre, background="black", width=1000, height=800)
-        cadre.pack()
-        ft_init_pile(cadre)
+        canvas = Canvas(fenetre, background="black", width=1000, height=800)
+        canvas.pack()
+        ft_init_pile()
 
         
 def     ft_window(nb):
